@@ -18,7 +18,7 @@ export class Alpha extends React.Component {
     const container = this.refs.container
     const containerWidth = container.clientWidth
     const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
-    const inIFrame = window.self !== window.top || window.document !== container.ownerDocument
+    const inIFrame = typeof this.props.iframe == 'undefined' ? (window.self !== window.top || window.document !== container.ownerDocument) : this.props.iframe
     const left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset))
 
     let a

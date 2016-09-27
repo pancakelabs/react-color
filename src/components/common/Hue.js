@@ -18,7 +18,7 @@ export class Hue extends React.Component {
     const containerHeight = container.clientHeight
     const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
     const y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY
-    const inIFrame = window.self !== window.top || window.document !== container.ownerDocument
+    const inIFrame = typeof this.props.iframe == 'undefined' ? (window.self !== window.top || window.document !== container.ownerDocument) : this.props.iframe
     const left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset))
     const top = y - (container.getBoundingClientRect().top + (inIFrame ? 0 : window.pageYOffset))
 
